@@ -16,6 +16,8 @@ functions:
       code: |
         sudo git branch --help config
         !/bin/sh
+    - code: git pull
+    - description: If sudo access is only given to git pull, a git repository with a malicious githook can be pulled to execute the post-pull hook as root.
   limited-suid:
     - code: PAGER='sh -c "exec sh 0<&1"' ./git -p help
 ---
